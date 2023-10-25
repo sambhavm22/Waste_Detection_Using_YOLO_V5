@@ -3,12 +3,10 @@ import yaml
 import os.path
 import sys
 import base64
-from ensure import ensure_annotations
 
 from WasteDetection.exception import AppException
 from WasteDetection.logger import logging
 
-@ensure_annotations
 def read_yaml(file_path: str) -> dict:
     try:
         with open(file_path, 'rb') as yaml_file:
@@ -17,7 +15,6 @@ def read_yaml(file_path: str) -> dict:
     except Exception as e:
         raise AppException(e, sys) from e
 
-@ensure_annotations
 def write_yaml_file(file_path: str, content: object, replace: bool) -> None:
     try:
         if replace:
